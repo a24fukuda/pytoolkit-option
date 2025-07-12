@@ -1,6 +1,6 @@
 [project]
 name = "pytoolkit-option"
-version = "v2025.07.12"
+version = "v2025.07.12.01"
 description = "pytoolkit template"
 readme = "README.md"
 requires-python = ">=3.13"
