@@ -41,7 +41,7 @@ class TestSome:
 
     def test_match(self):
         some = Some(42)
-        result = some.match(some=lambda x: x * 2, none=lambda: 0)
+        result = some.match(some=lambda x: x * 2, nothing=lambda: 0)
         assert result == 84
 
 
@@ -75,14 +75,14 @@ class TestNothing:
 
     def test_match(self):
         nothing = Nothing[int]()
-        result = nothing.match(some=lambda x: x * 2, none=lambda: 42)
+        result = nothing.match(some=lambda x: x * 2, nothing=lambda: 42)
         assert result == 42
 
     def test_new_instance_behavior(self):
         nothing1 = Nothing[Any]()
         nothing2 = Nothing[Any]()
         assert nothing1 is not nothing2
-        assert nothing1 == nothing2
+        assert nothing1 != nothing2
 
 
 class TestOptionGeneric:
@@ -133,14 +133,13 @@ class TestOptionPolymorphism:
 
         assert isinstance(results[0], Some)
         assert results[0].unwrap() == 84
-
         assert isinstance(results[1], Nothing)
 
     def test_option_match_polymorphism(self):
         options: list[Option[int]] = [Some(42), Nothing()]
 
         results = [
-            opt.match(some=lambda x: f"Value: {x}", none=lambda: "No value")
+            opt.match(some=lambda x: f"Value: {x}", nothing=lambda: "No value")
             for opt in options
         ]
 

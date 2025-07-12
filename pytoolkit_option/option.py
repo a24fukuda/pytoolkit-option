@@ -34,7 +34,7 @@ class Option(ABC, Generic[T]):
         raise NotImplementedError()
 
     @abstractmethod
-    def match(self, some: Callable[[T], U], none: Callable[[], U]) -> U:
+    def match(self, some: Callable[[T], U], nothing: Callable[[], U]) -> U:
         raise NotImplementedError()
 
 
@@ -60,7 +60,7 @@ class Some(Option[T]):
     def and_then(self, f: Callable[[T], Option[U]]) -> Option[U]:
         return f(self._value)
 
-    def match(self, some: Callable[[T], U], none: Callable[[], U]) -> U:
+    def match(self, some: Callable[[T], U], nothing: Callable[[], U]) -> U:
         return some(self._value)
 
 
@@ -83,5 +83,5 @@ class Nothing(Option[T]):
     def and_then(self, f: Callable[[T], Option[U]]) -> Option[U]:
         return Nothing[U]()
 
-    def match(self, some: Callable[[T], U], none: Callable[[], U]) -> U:
-        return none()
+    def match(self, some: Callable[[T], U], nothing: Callable[[], U]) -> U:
+        return nothing()
