@@ -1,5 +1,5 @@
 [project]
-name = "pytoolkit-template"
+name = "pytoolkit-option"
 version = "v2025.07.12"
 description = "pytoolkit template"
 readme = "README.md"
@@ -17,5 +17,5 @@ build-backend = "hatchling.build"
 target-version = "py313"
 
 [tool.pyright]
-include = ["pytoolkit_template", "tests"]
+include = ["pytoolkit_option", "tests"]
 typeCheckingMode = "strict"

@@ -1,4 +1,4 @@
-# pytoolkit-template
+# pytoolkit-optional
 
 pytoolkit template project
 

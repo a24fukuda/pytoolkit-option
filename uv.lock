@@ -86,7 +86,7 @@ wheels = [
 ]
 
 [[package]]
-name = "pytoolkit-template"
+name = "pytoolkit-option"
 version = "2025.7.12"
 source = { editable = "." }
 
